@@ -1,14 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_isascii.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hde-andr <hde-andr@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/13 21:57:39 by hde-andr          #+#    #+#             */
-/*   Updated: 2025/10/13 21:57:39 by hde-andr         ###   ########.fr       */
+/*   Created: 2025/10/13 21:58:25 by hde-andr          #+#    #+#             */
+/*   Updated: 2025/10/13 21:58:25 by hde-andr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+int ft_isascii(int c)
+{
+	return (c >= 0 && c <= 127);
+}
 
-
+/*#include <stdio.h>
+int main()
+{
+	printf("%d\n", ft_isascii('a'));
+	printf("%d\n", ft_isascii(' '));
+	printf("%d\n", ft_isascii(127));
+	printf("%d\n", ft_isascii(31));
+	printf("%d\n", ft_isascii(50));
+	printf("%d\n", ft_isascii(200));
+	return (0);
+}*/
