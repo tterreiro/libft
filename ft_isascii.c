@@ -6,11 +6,11 @@
 /*   By: hde-andr <hde-andr@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/13 21:58:25 by hde-andr          #+#    #+#             */
-/*   Updated: 2025/10/13 21:58:25 by hde-andr         ###   ########.fr       */
+/*   Updated: 2025/10/14 13:50:55 by hde-andr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_isascii(int c)
+int	ft_isascii(int c)
 {
 	return (c >= 0 && c <= 127);
 }

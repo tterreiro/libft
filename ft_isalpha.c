@@ -1,33 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_isalpha.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hde-andr <hde-andr@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/13 21:57:30 by hde-andr          #+#    #+#             */
-/*   Updated: 2025/10/14 13:51:34 by hde-andr         ###   ########.fr       */
+/*   Created: 2025/10/13 13:50:25 by hde-andr          #+#    #+#             */
+/*   Updated: 2025/10/13 14:42:37 by hde-andr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-size_t	strlen(const char *s)
+int	ft_isalpha(int c)
 {
-	size_t	i;
+	unsigned char	x;
 
-	i = 0;
-	while (s[i] != '\0')
-		i++;
-	return (i);
+	x = (unsigned char)c;
+	if ((x >= 'a' && x <= 'z') || (x >= 'A' && x <= 'Z'))
+		return (1);
+	return (0);
 }
 
 /*#include <stdio.h>
-int main()
+int	main()
 {
-	printf("%zu\n", ft_strlen("Hello World!"));
-	printf("%zu\n", ft_strlen(""));
-	printf("%zu\n", ft_strlen("42"));
-	printf("%zu\n", ft_strlen("123456789"));
-	return (0);
+	int	a = ft_isalpha('2');
+	if (a == 0)
+		printf("THATS NOT A LETTER!");
+	else
+		printf("Thats a letter :)");
+	return 0;
 }*/

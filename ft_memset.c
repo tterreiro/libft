@@ -1,33 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hde-andr <hde-andr@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/13 21:57:30 by hde-andr          #+#    #+#             */
-/*   Updated: 2025/10/14 13:51:34 by hde-andr         ###   ########.fr       */
+/*   Created: 2025/10/14 12:31:03 by hde-andr          #+#    #+#             */
+/*   Updated: 2025/10/14 14:59:40 by hde-andr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	strlen(const char *s)
+void	*ft_memset(void *s, int c, size_t n)
 {
-	size_t	i;
+	size_t			i;
+	unsigned char	*p;
 
+	if (!s)
+		return (NULL);
 	i = 0;
-	while (s[i] != '\0')
+	p = (unsigned char *)s;
+	while (i < n)
+	{
+		p[i] = (unsigned char)c;
 		i++;
-	return (i);
+	}
+	return (p);
 }
 
 /*#include <stdio.h>
 int main()
 {
-	printf("%zu\n", ft_strlen("Hello World!"));
-	printf("%zu\n", ft_strlen(""));
-	printf("%zu\n", ft_strlen("42"));
-	printf("%zu\n", ft_strlen("123456789"));
-	return (0);
+	char str[] = "skibidi toilet";
+	printf("Before memset: %s\n", str);
+	ft_memset(str, '*', 5);
+	printf("After memset: %s\n", str);
+	return 0;
 }*/

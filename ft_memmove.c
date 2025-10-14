@@ -1,33 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hde-andr <hde-andr@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/13 21:57:30 by hde-andr          #+#    #+#             */
-/*   Updated: 2025/10/14 13:51:34 by hde-andr         ###   ########.fr       */
+/*   Created: 2025/10/14 14:30:01 by hde-andr          #+#    #+#             */
+/*   Updated: 2025/10/14 16:17:22 by hde-andr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	strlen(const char *s)
+void	*ft_memmove(void *dest, const void *src, size_t n)
 {
-	size_t	i;
+	char		*d;
+	const char	*s;
 
-	i = 0;
-	while (s[i] != '\0')
-		i++;
-	return (i);
+	d = (char *)dest;
+	s = (const char *)src;
+	if (dest == src)
+		return (dest);
+	if (d > s)
+	{
+		while (n--)
+			d[n] = s[n];
+		return (dest);
+	}
+	else
+	{
+		while (n--)
+			*d++ = *s++;
+	}
+	return (dest);
 }
 
 /*#include <stdio.h>
-int main()
+int	main()
 {
-	printf("%zu\n", ft_strlen("Hello World!"));
-	printf("%zu\n", ft_strlen(""));
-	printf("%zu\n", ft_strlen("42"));
-	printf("%zu\n", ft_strlen("123456789"));
-	return (0);
+	char dest[19];
+	char *src = "good skibidi toilet";
+	printf("Before memmove: %s\n", dest);
+	ft_memmove(dest, src, 19);
+	printf("After memmove: %s", dest);
 }*/

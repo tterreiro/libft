@@ -1,33 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hde-andr <hde-andr@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/13 21:57:30 by hde-andr          #+#    #+#             */
-/*   Updated: 2025/10/14 13:51:34 by hde-andr         ###   ########.fr       */
+/*   Created: 2025/10/14 13:29:31 by hde-andr          #+#    #+#             */
+/*   Updated: 2025/10/14 13:48:57 by hde-andr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	strlen(const char *s)
+void	ft_bzero(void *s, size_t n)
 {
-	size_t	i;
+	unsigned char	*p;
+	size_t			i;
 
+	p = (unsigned char *)s;
 	i = 0;
-	while (s[i] != '\0')
+	while (i < n)
+	{
+		p[i] = 0;
 		i++;
-	return (i);
+	}
 }
-
-/*#include <stdio.h>
-int main()
+/*
+#include <stdio.h>
+int	main()
 {
-	printf("%zu\n", ft_strlen("Hello World!"));
-	printf("%zu\n", ft_strlen(""));
-	printf("%zu\n", ft_strlen("42"));
-	printf("%zu\n", ft_strlen("123456789"));
-	return (0);
+	char s[] = "SKIBIDI TOILET";
+	ft_bzero(s, 3);
+	write(1, &s, sizeof(s));
+	return 0;
 }*/
