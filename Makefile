@@ -25,23 +25,23 @@ PART_2 = ft_substr.c ft_strjoin.c ft_strtrim.c ft_split.c \
 #BONUS = ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstadd_back.c \
 		ft_lstdelone.c ft_lstclear.c ft_lastiter.c ft_lstmap.c
 
-SRC = $(PART_1) $(PART_2)
+SRCS = $(PART_1) $(PART_2)
 
-OBJ = $(SRC:.c=.o)
+OBJS = $(SRCS:.c=.o)
 
 %.o: %.c
-	gcc -Wall -Wextra -Werror -I. -c $< -o  $@
+	cc -Wall -Wextra -Werror -I. -c $< -o  $@
 
 all: $(NAME)
 
-$(NAME): $(OBJ)
-	ar rc $(NAME) $(OBJ)
+$(NAME): $(OBJS)
+	ar rc $(NAME) $(OBJS)
 
 #bonus: $(BONUS)
 	
 
 clean:
-	rm -f $(OBJ)
+	rm -f $(OBJS)
 
 fclean: clean
 	rm -f $(NAME)

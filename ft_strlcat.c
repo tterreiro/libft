@@ -1,46 +1,48 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hde-andr <hde-andr@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/14 16:19:29 by hde-andr          #+#    #+#             */
-/*   Updated: 2025/10/14 16:20:41 by hde-andr         ###   ########.fr       */
+/*   Created: 2025/10/15 17:26:39 by hde-andr          #+#    #+#             */
+/*   Updated: 2025/10/15 17:26:39 by hde-andr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcpy(char *dst, const char *src, size_t size)
+size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
-	unsigned int	len;
-	unsigned int	i;
+	size_t	len_dst;
+	size_t	len_src;
+	size_t	i;
 
-	len = ft_strlen(src);
+	len_dst = ft_strlen(dst);
+	len_src = ft_strlen(src);
+	if (size <= len_dst)
+		return (len_src + size);
 	i = 0;
-	if (size == 0)
-		return (len);
-	while ((i < size - 1) && src[i])
+	while (src[i] && (i + len_dst < size - 1))
 	{
-		dst[i] = src[i];
+		dst[len_dst + i] = src[i];
 		i++;
 	}
-	dst[i] = '\0';
-	return (len);
+	dst[len_dst + i] = '\0';
+	return (len_dst + len_src);
 }
 
 /*
 #include <stdio.h>
 int	main()
 {
-	char	dest[24];
-	const char	*src = "654";
+	char	dest[24] = "skibidi";
+	const char	*src = "toilet";
 	size_t      return_value;
 
-	return_value = ft_strlcpy(dest, src, sizeof(dest));
+	printf("Destination string = %s\n", dest);
 	printf("Source string = %s\n", src);
-	printf("Destination buffer size = %zu\n", sizeof(dest));
-	printf("Copied string = %s\n", dest);
+	return_value = ft_strlcat(dest, src, sizeof(dest));
+	printf("Concatenated STRing = %s\n", dest);
 	printf("Return Value = %zu\n", return_value);
 }*/
