@@ -1,40 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hde-andr <hde-andr@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/15 20:43:12 by hde-andr          #+#    #+#             */
-/*   Updated: 2025/10/15 20:43:12 by hde-andr         ###   ########.fr       */
+/*   Created: 2025/10/16 17:29:42 by hde-andr          #+#    #+#             */
+/*   Updated: 2025/10/16 17:29:42 by hde-andr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strchr(const char *s, int c)
+char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
-	int		i;
-	char	chr;
+	size_t	i;
+	size_t	j;
+	size_t	l_len;
 
 	i = 0;
-	chr = (char)c;
-	while (s[i])
+	j = 0;
+	while (big[i] && i < len)
 	{
-		if (s[i] == chr)
-			return ((char *)s + i);
+		if(big[i] == little[j])
+			j++;
+		else
+			j = 0;
 		i++;
 	}
-	if (chr == '\0')
-		return ((char *)s + i);
-	return (NULL);
+	while ()
+	return ();
 }
-/*
-#include <stdio.h>
-int	main()
-{
-	const  char	*str = "skibidi toilet";
-	char *result;
-	result = ft_strchr(str, '\0');
-	printf("%s\n", result);
-}*/

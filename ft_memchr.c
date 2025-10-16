@@ -1,40 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hde-andr <hde-andr@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/15 20:43:12 by hde-andr          #+#    #+#             */
-/*   Updated: 2025/10/15 20:43:12 by hde-andr         ###   ########.fr       */
+/*   Created: 2025/10/16 14:27:03 by hde-andr          #+#    #+#             */
+/*   Updated: 2025/10/16 14:27:03 by hde-andr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strchr(const char *s, int c)
+void	*ft_memchr(const void *s, int c, size_t n)
 {
-	int		i;
-	char	chr;
+	size_t			i;
+	unsigned char	*str;
 
 	i = 0;
-	chr = (char)c;
-	while (s[i])
+	str = (unsigned char *)s;
+	while (i < n)
 	{
-		if (s[i] == chr)
-			return ((char *)s + i);
+		if (str[i] == (unsigned char)c)
+			return (str + i);
 		i++;
 	}
-	if (chr == '\0')
-		return ((char *)s + i);
 	return (NULL);
 }
 /*
 #include <stdio.h>
 int	main()
 {
-	const  char	*str = "skibidi toilet";
-	char *result;
-	result = ft_strchr(str, '\0');
-	printf("%s\n", result);
+	printf("%s\n", ft_memchr("Hello world!", 'w', 12));
 }*/
