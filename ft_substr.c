@@ -1,46 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hde-andr <hde-andr@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/14 14:30:01 by hde-andr          #+#    #+#             */
-/*   Updated: 2025/10/17 11:59:07 by hde-andr         ###   ########.fr       */
+/*   Created: 2025/10/17 14:15:36 by hde-andr          #+#    #+#             */
+/*   Updated: 2025/10/17 16:13:14 by hde-andr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memmove(void *dest, const void *src, size_t n)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	char		*d;
-	const char	*s;
+	char	*tmp;
+	size_t	i;
 
-	d = (char *)dest;
-	s = (const char *)src;
-	if (dest == src)
-		return (dest);
-	if (d > s)
+	if (s == NULL)
+		return (NULL);
+	if (start > ft_strlen(s))
+		return (ft_strdup(""));
+	if (len > (ft_strlen(s) - start))
+		len = ft_strlen(s) - start;
+	tmp = malloc(sizeof(char) * (len + 1));
+	if (tmp == NULL)
+		return (NULL);
+	i = 0;
+	while (s[start + i] && i < len)
 	{
-		while (n--)
-			d[n] = s[n];
-		return (dest);
+		tmp[i] = s[start + i];
+		i++;
 	}
-	else
-	{
-		while (n--)
-			*d++ = *s++;
-	}
-	return (dest);
+	tmp[i] = '\0';
+	return (tmp);
 }
 
 /*#include <stdio.h>
 int	main()
 {
-	char dest[19];
-	char *src = "good skibidi toilet";
-	printf("Before memmove: %s\n", dest);
-	ft_memmove(dest, src, 19);
-	printf("After memmove: %s", dest);
+	printf("%s", ft_substr("tripouille", 100, 1));
 }*/

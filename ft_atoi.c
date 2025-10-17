@@ -1,46 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hde-andr <hde-andr@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/14 14:30:01 by hde-andr          #+#    #+#             */
-/*   Updated: 2025/10/17 11:59:07 by hde-andr         ###   ########.fr       */
+/*   Created: 2025/10/17 11:32:09 by hde-andr          #+#    #+#             */
+/*   Updated: 2025/10/17 12:02:24 by hde-andr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memmove(void *dest, const void *src, size_t n)
+int	ft_atoi(const char *nptr)
 {
-	char		*d;
-	const char	*s;
+	int	i;
+	int	sign;
+	int	result;
 
-	d = (char *)dest;
-	s = (const char *)src;
-	if (dest == src)
-		return (dest);
-	if (d > s)
+	i = 0;
+	sign = 1;
+	result = 0;
+	while (nptr[i] == ' ' || (nptr[i] >= 9 && nptr[i] <= 13))
+		i++;
+	if (nptr[i] == '-' || nptr[i] == '+')
 	{
-		while (n--)
-			d[n] = s[n];
-		return (dest);
+		if (nptr[i] == '-')
+			sign *= -1;
+		i++;
 	}
-	else
+	while (nptr[i] >= '0' && nptr[i] <= '9')
 	{
-		while (n--)
-			*d++ = *s++;
+		result = (result * 10) + (nptr[i] - '0');
+		i++;
 	}
-	return (dest);
+	return (result * sign);
 }
 
 /*#include <stdio.h>
-int	main()
+int	main(int argc, char **argv)
 {
-	char dest[19];
-	char *src = "good skibidi toilet";
-	printf("Before memmove: %s\n", dest);
-	ft_memmove(dest, src, 19);
-	printf("After memmove: %s", dest);
+	if(argc == 2)
+	{
+		printf("%d\n", ft_atoi(argv[1]));
+	}
 }*/

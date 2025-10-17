@@ -1,32 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalnum.c                                       :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hde-andr <hde-andr@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/13 21:58:31 by hde-andr          #+#    #+#             */
-/*   Updated: 2025/10/17 12:05:30 by hde-andr         ###   ########.fr       */
+/*   Created: 2025/10/17 16:34:12 by hde-andr          #+#    #+#             */
+/*   Updated: 2025/10/17 16:56:04 by hde-andr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isalnum(int c)
+void	ft_putnbr_fd(int n, int fd)
 {
-	return ((c >= '0' && c <= '9')
-		|| (c >= 'A' && c <= 'Z')
-		|| (c >= 'a' && c <= 'z'));
-}
+	long int	nbr;
 
-/*#include <stdio.h>
-int main()
-{
-	printf("%d\n", ft_isalnum('a'));
-	printf("%d\n", ft_isalnum(' '));
-	printf("%d\n", ft_isalnum('5'));
-	printf("%d\n", ft_isalnum(127));
-	printf("%d\n", ft_isalnum(31));
-	printf("%d\n", ft_isalnum(50));
-	return (0);
-}*/
+	nbr = n;
+	{
+		if (nbr < 0)
+		{
+			ft_putchar_fd('-', fd);
+			nbr *= -1;
+		}
+		if (nbr > 9)
+			ft_putnbr_fd(nbr / 10, fd);
+		ft_putchar_fd(nbr % 10 + '0', fd);
+	}
+}

@@ -1,32 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalnum.c                                       :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hde-andr <hde-andr@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/13 21:58:31 by hde-andr          #+#    #+#             */
-/*   Updated: 2025/10/17 12:05:30 by hde-andr         ###   ########.fr       */
+/*   Created: 2025/10/17 13:57:10 by hde-andr          #+#    #+#             */
+/*   Updated: 2025/10/17 15:52:38 by hde-andr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isalnum(int c)
+char	*ft_strdup(const char *s)
 {
-	return ((c >= '0' && c <= '9')
-		|| (c >= 'A' && c <= 'Z')
-		|| (c >= 'a' && c <= 'z'));
+	char	*tmp;
+	int		s_len;
+	int		i;
+
+	s_len = ft_strlen(s);
+	i = 0;
+	tmp = malloc(sizeof(char) * (s_len + 1));
+	if (tmp == NULL)
+		return (NULL);
+	while (s[i])
+	{
+		tmp[i] = s[i];
+		i++;
+	}
+	tmp[i] = '\0';
+	return (tmp);
 }
 
 /*#include <stdio.h>
-int main()
+int	main()
 {
-	printf("%d\n", ft_isalnum('a'));
-	printf("%d\n", ft_isalnum(' '));
-	printf("%d\n", ft_isalnum('5'));
-	printf("%d\n", ft_isalnum(127));
-	printf("%d\n", ft_isalnum(31));
-	printf("%d\n", ft_isalnum(50));
-	return (0);
+	char *p;
+	p = ft_strdup("ola123");
+	printf("%s", p);
+	free(p);
 }*/

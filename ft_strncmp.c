@@ -6,7 +6,7 @@
 /*   By: hde-andr <hde-andr@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/16 13:59:19 by hde-andr          #+#    #+#             */
-/*   Updated: 2025/10/16 13:59:19 by hde-andr         ###   ########.fr       */
+/*   Updated: 2025/10/17 12:40:02 by hde-andr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,7 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 
 	i = 0;
 	if (n == 0)
-	{
 		return (0);
-	}
 	while (i < n - 1 && s1[i] && s2[i])
 	{
 		if (s1[i] != s2[i])

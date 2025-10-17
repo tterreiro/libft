@@ -1,34 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalpha.c                                       :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hde-andr <hde-andr@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/13 13:50:25 by hde-andr          #+#    #+#             */
-/*   Updated: 2025/10/17 12:05:41 by hde-andr         ###   ########.fr       */
+/*   Created: 2025/10/17 12:04:06 by hde-andr          #+#    #+#             */
+/*   Updated: 2025/10/17 16:05:24 by hde-andr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isalpha(int c)
+void	*ft_calloc(size_t nmemb, size_t size)
 {
-	unsigned char	x;
+	void	*ptr;
+	size_t	size_malloc;
+	size_t	tot_size;
 
-	x = (unsigned char)c;
-	if ((x >= 'a' && x <= 'z') || (x >= 'A' && x <= 'Z'))
-		return (1);
-	return (0);
+	tot_size = nmemb * size;
+	if (nmemb == 0 || size == 0)
+		return (malloc(0));
+	if (tot_size / size != size)
+		return (NULL);
+	size_malloc = nmemb * size;
+	ptr = malloc(size_malloc);
+	if (ptr == NULL)
+		return (NULL);
+	ft_bzero(ptr, size_malloc);
+	return (ptr);
 }
 
 /*#include <stdio.h>
+#include <string.h>
 int	main()
 {
-	int	a = ft_isalpha('2');
-	if (a == 0)
-		printf("THATS NOT A LETTER!");
-	else
-		printf("Thats a letter :)");
-	return 0;
+	char *p;
+	p = ft_calloc(0, 0);
+	strcpy(p, "abcd");
+	printf("%s", p);
+	free (p);
 }*/
