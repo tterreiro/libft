@@ -6,7 +6,7 @@
 /*   By: hde-andr <hde-andr@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/13 13:50:25 by hde-andr          #+#    #+#             */
-/*   Updated: 2025/10/17 12:05:41 by hde-andr         ###   ########.fr       */
+/*   Updated: 2025/10/21 16:30:24 by hde-andr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,7 @@
 
 int	ft_isalpha(int c)
 {
-	unsigned char	x;
-
-	x = (unsigned char)c;
-	if ((x >= 'a' && x <= 'z') || (x >= 'A' && x <= 'Z'))
+	if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'))
 		return (1);
 	return (0);
 }

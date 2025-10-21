@@ -6,7 +6,7 @@
 /*   By: hde-andr <hde-andr@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/20 16:20:27 by hde-andr          #+#    #+#             */
-/*   Updated: 2025/10/20 16:20:27 by hde-andr         ###   ########.fr       */
+/*   Updated: 2025/10/21 11:02:17 by hde-andr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ static int	count_words(char const *s, char c)
 			while (s[i] && s[i] != c)
 				i++;
 		}
-		if (s[i] == c)
+		if (s[i] && s[i] == c)
 			i++;
 	}
 	return (words);

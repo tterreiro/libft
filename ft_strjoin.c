@@ -6,7 +6,7 @@
 /*   By: hde-andr <hde-andr@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/19 16:55:49 by hde-andr          #+#    #+#             */
-/*   Updated: 2025/10/19 16:55:49 by hde-andr         ###   ########.fr       */
+/*   Updated: 2025/10/21 11:02:26 by hde-andr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,9 @@
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {
-	unsigned char	*tmp;
+	char			*tmp;
 	size_t			s1_len;
 	size_t			s2_len;
-	size_t			i;
 
 	if (s1 == NULL && s2 == NULL)
 		return (NULL);

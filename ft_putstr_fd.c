@@ -6,7 +6,7 @@
 /*   By: hde-andr <hde-andr@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/17 16:25:25 by hde-andr          #+#    #+#             */
-/*   Updated: 2025/10/17 17:04:44 by hde-andr         ###   ########.fr       */
+/*   Updated: 2025/10/21 12:46:36 by hde-andr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,11 @@ void	ft_putstr_fd(char *s, int fd)
 	int	i;
 
 	i = 0;
+	if (s == NULL)
+		return ;
 	while (s[i])
 	{
-		ft_putchar_fd(fd, s[i]);
+		write(fd, &s[i], 1);
 		i++;
 	}
 }
