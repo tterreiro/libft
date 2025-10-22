@@ -1,38 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_lstnew_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hde-andr <hde-andr@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/14 12:31:03 by hde-andr          #+#    #+#             */
-/*   Updated: 2025/10/22 12:01:42 by hde-andr         ###   ########.fr       */
+/*   Created: 2025/10/22 14:10:39 by hde-andr          #+#    #+#             */
+/*   Updated: 2025/10/22 15:33:52 by hde-andr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memset(void *s, int c, size_t n)
+t_list	*ft_lstnew(void *content)
 {
-	size_t			i;
-	unsigned char	*p;
+	t_list	*new_node;
 
-	i = 0;
-	p = (unsigned char *)s;
-	while (i < n)
-	{
-		p[i] = (unsigned char)c;
-		i++;
-	}
-	return (p);
+	new_node = malloc(sizeof(t_list));
+	if (!new_node)
+		return (NULL);
+	new_node->content = content;
+	new_node->next = NULL;
+	return (new_node);
 }
 
 /* #include <stdio.h>
-int main()
+int	main()
 {
-	char str[] = "skibidi toilet";
-	printf("Before memset: %s\n", str);
-	ft_memset(str, '*', 5);
-	printf("After memset: %s\n", str);
-	return 0;
+	char *content = "67SKIBIDI";
+	t_list *node = ft_lstnew(content);
+	printf("%s", (char *)node->content);
 } */

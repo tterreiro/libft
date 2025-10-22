@@ -6,7 +6,7 @@
 #    By: hde-andr <hde-andr@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/13 13:17:36 by hde-andr          #+#    #+#              #
-#    Updated: 2025/10/21 16:57:15 by hde-andr         ###   ########.fr        #
+#    Updated: 2025/10/22 14:21:29 by hde-andr         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,8 +38,8 @@ all: $(NAME)
 $(NAME): $(OBJS)
 	ar rc $(NAME) $(OBJS)
 
-bonus: $(NAME) $(BONUS_OBJS)
-	ar rc $(NAME) $(BONUS_OBJS)
+bonus: $(OBJS) $(BONUS_OBJS)
+	ar rc $(NAME) $(OBJS) $(BONUS_OBJS)
 
 clean:
 	rm -f $(OBJS) $(BONUS_OBJS)

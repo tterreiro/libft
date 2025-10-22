@@ -1,38 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_lstsize_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hde-andr <hde-andr@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/14 12:31:03 by hde-andr          #+#    #+#             */
-/*   Updated: 2025/10/22 12:01:42 by hde-andr         ###   ########.fr       */
+/*   Created: 2025/10/22 16:01:21 by hde-andr          #+#    #+#             */
+/*   Updated: 2025/10/22 16:59:00 by hde-andr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memset(void *s, int c, size_t n)
+int	ft_lstsize(t_list *lst)
 {
-	size_t			i;
-	unsigned char	*p;
-
+	size_t	i;
+	
 	i = 0;
-	p = (unsigned char *)s;
-	while (i < n)
+	while (lst->next != NULL)
 	{
-		p[i] = (unsigned char)c;
 		i++;
+		lst = lst->next;
 	}
-	return (p);
+	return (i);
 }
 
 /* #include <stdio.h>
 int main()
 {
-	char str[] = "skibidi toilet";
-	printf("Before memset: %s\n", str);
-	ft_memset(str, '*', 5);
-	printf("After memset: %s\n", str);
-	return 0;
 } */
