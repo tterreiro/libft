@@ -6,7 +6,7 @@
 /*   By: hde-andr <hde-andr@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 14:30:01 by hde-andr          #+#    #+#             */
-/*   Updated: 2025/10/22 15:48:10 by hde-andr         ###   ########.fr       */
+/*   Updated: 2025/10/24 14:36:07 by hde-andr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,12 +35,13 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 	return (dest);
 }
 
-/*#include <stdio.h>
+/* #include <stdio.h>
 int	main()
 {
-	char dest[19];
-	char *src = "good skibidi toilet";
+	//char	str[30] = "123456789";
+	char dest[30];
+	char *src = "123456789";
 	printf("Before memmove: %s\n", dest);
-	ft_memmove(dest, src, 19);
+	ft_memmove(dest, src, 5);
 	printf("After memmove: %s", dest);
-}*/
+} */
