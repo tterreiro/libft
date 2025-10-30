@@ -6,7 +6,7 @@
 /*   By: hde-andr <hde-andr@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/23 18:06:51 by hde-andr          #+#    #+#             */
-/*   Updated: 2025/10/24 16:54:51 by hde-andr         ###   ########.fr       */
+/*   Updated: 2025/10/27 15:37:19 by hde-andr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,12 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 	if (!lst || !f)
 		return (NULL);
 	new_list = NULL;
-	new_node = NULL;
 	while (lst)
 	{
 		new_node = ft_lstnew(f(lst->content));
 		if (!new_node)
 		{
-			ft_lstclear(&new_node, del);
+			ft_lstclear(&new_list, del);
 			return (NULL);
 		}
 		ft_lstadd_back(&new_list, new_node);
@@ -68,3 +67,28 @@ int	main(void)
 	printf("After: %s", (char *)mapped_list->content);
 } 
  */
+
+/*t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
+{
+	t_list	*new_node;
+	t_list	*new_list;
+	t_list	*changed_content;
+
+	if (!lst || !f)
+		return (NULL);
+	new_list = NULL;
+	while (lst)
+	{
+		changed_content = f(lst->content);
+		new_node = ft_lstnew(changed_content);
+		if (!new_node)
+		{
+			ft_lstclear(&new_list, del);
+			free(changed_content);
+			return (NULL);
+		}
+		ft_lstadd_back(&new_list, new_node);
+		lst = lst->next;
+	}
+	return (new_list);
+}*/

@@ -6,7 +6,7 @@
 /*   By: hde-andr <hde-andr@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/13 21:57:39 by hde-andr          #+#    #+#             */
-/*   Updated: 2025/10/22 16:01:59 by hde-andr         ###   ########.fr       */
+/*   Updated: 2025/10/27 16:15:45 by hde-andr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,9 +48,13 @@ char	*ft_strdup(const char *s);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 void	ft_putchar_fd(char c, int fd);
+void	ft_putchar(char c);
 void	ft_putstr_fd(char *s, int fd);
+void	ft_putstr(char *s);
 void	ft_putendl_fd(char *s, int fd);
+void	ft_putendl(char *s);
 void	ft_putnbr_fd(int n, int fd);
+void	ft_putnbr(int n);
 void	ft_striteri(char *s, void (*f)(unsigned int, char*));
 char	*ft_strjoin(char const *s1, char const *s2);
 char	*ft_strtrim(char const *s1, char const *set);
